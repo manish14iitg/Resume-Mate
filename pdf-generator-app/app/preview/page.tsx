@@ -82,27 +82,27 @@ export default function PreviewPage() {
             <CardContent className="p-8 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="font-semibold text-gray-900">Name:</div>
-                <div className="md:col-span-2 text-gray-600">{formData.name}</div>
+                <div className="md:col-span-2 text-gray-600">{formData?.name}</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="font-semibold text-gray-900">Email:</div>
-                <div className="md:col-span-2 text-gray-600">{formData.email}</div>
+                <div className="md:col-span-2 text-gray-600">{formData?.email}</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="font-semibold text-gray-900">Phone Number:</div>
-                <div className="md:col-span-2 text-gray-600">{formData.phone}</div>
+                <div className="md:col-span-2 text-gray-600">{formData?.phone}</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="font-semibold text-gray-900">Position:</div>
-                <div className="md:col-span-2 text-gray-600">{formData.position}</div>
+                <div className="md:col-span-2 text-gray-600">{formData?.position}</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="font-semibold text-gray-900">Description:</div>
-                <div className="md:col-span-2 text-gray-600 whitespace-pre-wrap">{formData.description}</div>
+                <div className="md:col-span-2 text-gray-600 whitespace-pre-wrap">{formData?.description}</div>
               </div>
             </CardContent>
           </Card>
