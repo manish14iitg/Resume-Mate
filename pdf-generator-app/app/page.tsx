@@ -96,7 +96,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {records.map((record) => (
               // Link to the form page with pre-filled data via query params or sessionStorage
-              <Link key={record._id} href={`/preview?id=${record._id}`}>
+              <Link key={record._id} href={`/preview/${record._id}`}>
                 <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 hover:border-green-200">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg font-semibold text-gray-900 flex items-center gap-2">
