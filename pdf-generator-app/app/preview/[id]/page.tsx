@@ -34,7 +34,7 @@ export default function PreviewByIdPage() {
   const fetchRecord = async (id: string) => {
     try {
       setLoading(true)
-      const response = await fetch(`http://localhost:5000/api/records/${id}`)
+      const response = await fetch(`https://resume-mate.onrender.com/api/records/${id}`)
       if (!response.ok) {
         throw new Error("Record not found")
       }
