@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter, useSearchParams  } from "next/navigation"
+import { useRouter, useParams   } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Download } from "lucide-react"
@@ -19,8 +19,8 @@ interface UserRecord {
 
 export default function PreviewByIdPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const recordId = searchParams.get('id')
+  const params = useParams()
+const recordId = params.id
   const [record, setRecord] = useState<UserRecord | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
