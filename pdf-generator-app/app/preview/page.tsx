@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Download } from "lucide-react"
@@ -19,46 +19,14 @@ export default function PreviewPage() {
   const router = useRouter()
   const [formData, setFormData] = useState<FormData | null>(null)
   const [isDownloading, setIsDownloading] = useState(false)
-  const searchParams = useSearchParams()
-  const recordId = searchParams.get('id')
+  
+  
   const [loading, setLoading] = useState(true) 
   const [error, setError] = useState<string | null>(null) 
 
-  useEffect(() => {
-    if (recordId) {
-      
-      fetchRecordById(recordId)
-    } else {
-      
-      const savedData = sessionStorage.getItem("pdfFormData")
-      if (savedData) {
-        setFormData(JSON.parse(savedData))
-        setLoading(false)
-      } else {
-        
-        router.push("/form")
-      }
-    }
-  }, [recordId, router]) 
+  
 
-  const fetchRecordById = async (id: string) => {
-    try {
-      setLoading(true)
-      setError(null) // Clear previous errors
-      const response = await fetch(`https://resume-mate.onrender.com/api/records/${id}`)
-      if (!response.ok) {
-        throw new Error("Failed to fetch record from API")
-      }
-      const data: FormData = await response.json()
-      setFormData(data)
-    } catch (err) {
-      console.error("Error fetching record by ID for preview:", err)
-      setError("Failed to load record for preview. Make sure the API server is running and the ID is valid.")
-      setFormData(null); // Clear form data on error
-    } finally {
-      setLoading(false)
-    }
-  }
+  
 
   const handleBack = () => {
     router.push("/form")
