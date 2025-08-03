@@ -28,7 +28,7 @@ export default function HomePage() {
   const fetchRecords = async () => {
     try {
       setLoading(true)
-      const response = await fetch("http://localhost:5000/api/records")
+      const response = await fetch("https://resume-mate.onrender.com/api/records")
       if (!response.ok) {
         throw new Error("Failed to fetch records")
       }
