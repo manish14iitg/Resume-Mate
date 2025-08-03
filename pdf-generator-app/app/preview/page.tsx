@@ -45,7 +45,7 @@ export default function PreviewPage() {
     try {
       setLoading(true)
       setError(null) // Clear previous errors
-      const response = await fetch(`http://localhost:5000/api/records/${id}`)
+      const response = await fetch(`https://resume-mate.onrender.com/api/records/${id}`)
       if (!response.ok) {
         throw new Error("Failed to fetch record from API")
       }
@@ -70,7 +70,7 @@ export default function PreviewPage() {
     setIsDownloading(true)
     try {
         // Save the form data to the database
-        const response = await fetch("http://localhost:5000/api/records", {
+        const response = await fetch("https://resume-mate.onrender.com/api/records", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
