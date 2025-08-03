@@ -52,7 +52,7 @@ export default function FormPage() {
   const fetchRecordById = async (id: string) => {
     try {
       setLoadingRecord(true)
-      const response = await fetch(`http://localhost:5000/api/records/${id}`)
+      const response = await fetch(`https://resume-mate.onrender.com/api/records/${id}`)
       if (!response.ok) {
         throw new Error("Failed to fetch record by ID")
       }
@@ -108,7 +108,7 @@ export default function FormPage() {
       setIsSubmitting(true)
       try {
         // Save the form data to the database
-        const response = await fetch("http://localhost:5000/api/records", {
+        const response = await fetch("https://resume-mate.onrender.com/api/records", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
