@@ -21,7 +21,7 @@ export default function PreviewPage() {
   const [isDownloading, setIsDownloading] = useState(false)
   
   
-  const [loading, setLoading] = useState(true) 
+  const [loading, setLoading] = useState(false) 
   const [error, setError] = useState<string | null>(null) 
 
   
