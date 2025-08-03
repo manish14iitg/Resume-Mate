@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -27,8 +27,7 @@ interface FormErrors {
 
 export default function FormPage() {
   const router = useRouter()
-  const searchParams = useSearchParams() 
-  const recordId = searchParams.get('id') 
+  
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -41,30 +40,9 @@ export default function FormPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [loadingRecord, setLoadingRecord] = useState(true) // New state for loading individual record
 
-  useEffect(() => {
-    if (recordId) {
-      fetchRecordById(recordId)
-    } else {
-      setLoadingRecord(false) // No ID, so not loading a record
-    }
-  }, [recordId])
+  
 
-  const fetchRecordById = async (id: string) => {
-    try {
-      setLoadingRecord(true)
-      const response = await fetch(`https://resume-mate.onrender.com/api/records/${id}`)
-      if (!response.ok) {
-        throw new Error("Failed to fetch record by ID")
-      }
-      const data = await response.json()
-      setFormData(data) // Populate form with fetched data
-    } catch (err) {
-      console.error("Error fetching record by ID:", err)
-      // Optionally, show an error message to the user
-    } finally {
-      setLoadingRecord(false)
-    }
-  }
+  
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
