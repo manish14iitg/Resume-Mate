@@ -24,6 +24,14 @@ export default function PreviewPage() {
   const [loading, setLoading] = useState(false) 
   const [error, setError] = useState<string | null>(null) 
 
+
+
+  useEffect(() => {
+  const storedData = sessionStorage.getItem("pdfFormData")
+  if (storedData) {
+    setFormData(JSON.parse(storedData))
+  }
+}, [])
   
 
   
