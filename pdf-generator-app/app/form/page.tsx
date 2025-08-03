@@ -38,7 +38,7 @@ export default function FormPage() {
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [loadingRecord, setLoadingRecord] = useState(true) // New state for loading individual record
+  const [loadingRecord, setLoadingRecord] = useState(false) // New state for loading individual record
 
   
 
