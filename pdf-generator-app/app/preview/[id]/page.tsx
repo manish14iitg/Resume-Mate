@@ -28,9 +28,21 @@ export default function PreviewByIdPage() {
 
   useEffect(() => {
     if (recordId) {
+      console.log("record id", recordId);
       fetchRecord(recordId as string)
     }
   }, [recordId, router])
+
+  useEffect(() => {
+  const timeout = setTimeout(() => {
+    if (loading) {
+      setLoading(false)
+      setError("Request timed out.")
+    }
+  }, 10000)
+
+  return () => clearTimeout(timeout)
+}, [loading])
 
   const fetchRecord = async (id: string) => {
     try {
